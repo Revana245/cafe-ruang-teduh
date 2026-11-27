@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — Ruang Teduh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="kepala">
+    <div class="kepala-dalam">
+      <div class="logo-area">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrCuDacwYOTFs6bC1JK8k3e0_jRQylczqCTAG6w4rnpbW14CV2ctlEw0Z1VK9berqk79Ntcbg6v01HcPem66A9mhzauqv-FY7tyzmWneZacUWZn0BH2uu1KMVZ1hO9uMGyGfQ1bcq2dwxnVq_vXC70OaL5-9S3OeDYjWNAdnvZazM-s2WKSKz9hA2sQyfTQjJQacMhjkTlwjRtn4T59WJwxp-Gtq3pBB5buIdqeCacbb1Q" alt="Logo Ruang Teduh" class="logo-gambar">
+        <div class="logo-teks"><span class="logo-nama">Ruang Teduh</span><span class="logo-tagline">Kopi & Ruang Temu • Jogja</span></div>
+      </div>
+      <nav class="navigasi-utama">
+        <a href="home.html" class="tautan-nav">Home</a>
+        <a href="menu.html" class="tautan-nav aktif">Menu</a>
+        <a href="membership.html" class="tautan-nav">Membership</a>
+        <a href="events.html" class="tautan-nav">Events</a>
+        <a href="ulasan.html" class="tautan-nav">Ulasan</a>
+      </nav>
+      <div class="area-kanan-kepala">
+        <div class="info-jam"><span class="overline">Buka Setiap Hari</span><span class="label">08:00 – 23:00 WIB</span></div>
+        <a href="#" class="tombol tombol-utama">Pesan Meja / Order</a>
+        <div class="avatar-pengguna"><span class="material-symbols-outlined" style="font-size:18px;">person</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="utama">
+    <section class="bagian-header-menu">
+      <div class="baris-antara" style="padding-bottom:1.5rem;">
+        <div style="max-width:36rem;display:flex;flex-direction:column;gap:0.25rem;">
+          <div class="baris" style="gap:0.5rem;"><span style="display:inline-block;width:0.625rem;height:0.625rem;border-radius:50%;background:var(--warna-secondary);"></span><span class="overline teks-secondary">Katalog Kurasi Rasa</span></div>
+          <h1 class="judul-besar">Buku Menu Ruang Teduh</h1>
+          <p class="teks-besar teks-redup">Disajikan sepenuh hati dari biji kopi lokal terbaik dan bahan segar setiap pagi di pelukan hangat kota Jogja.</p>
+        </div>
+        <div class="baris-pencarian">
+          <div class="wadah-cari"><span class="material-symbols-outlined">search</span><input type="text" id="input-cari" class="input-cari" placeholder="Cari kopi, pastry, camilan..." oninput="cariMenu(this.value)"></div>
+          <div class="badge-halal"><span class="material-symbols-outlined">verified</span><span>100% Halal Certified</span></div>
+        </div>
+      </div>
+      <div class="wadah-pil" id="pil-kategori">
+        <button class="pil-kategori aktif" onclick="filterKategori('all',this)">Semua Koleksi (14)</button>
+        <button class="pil-kategori" onclick="filterKategori('sweet-savory',this)">Sweet & Savory (6)</button>
+        <button class="pil-kategori" onclick="filterKategori('signature',this)">Signature Coffee (5)</button>
+        <button class="pil-kategori" onclick="filterKategori('espresso-manual',this)">Manual Brew & Espresso (3)</button>
+        <button class="pil-kategori" onclick="filterKategori('tea-refreshment',this)">Non-Coffee & Refresher</button>
+      </div>
+    </section>
+
+    <section class="wadah">
+      <div class="banner-promo">
+        <div class="promo-kiri">
+          <div class="promo-ikon"><span class="material-symbols-outlined" style="font-size:24px;">local_cafe</span></div>
+          <div>
+            <div class="baris" style="gap:0.5rem;"><span class="overline teks-secondary">WFC Companion Deal</span><span class="badge-promo">Hemat 15%</span></div>
+            <p class="judul-mini" style="color:var(--warna-primary);margin-top:0.125rem;">Paket Karsa Pagi: Buttercloud Croissant + Americano Teduh</p>
+            <p class="teks-kecil teks-redup">Tersedia setiap hari pukul 08:00 – 11:30 WIB. Termasuk akses colokan & WiFi berkecepatan 150 Mbps.</p>
+          </div>
+        </div>
+        <div class="baris" style="gap:0.5rem;z-index:10;">
+          <span class="harga-promo">Rp 32.000</span>
+          <button class="tombol tombol-utama" onclick="tambahPesanan('Paket Karsa Pagi','32.000')"><span class="material-symbols-outlined" style="font-size:16px;">add_shopping_cart</span> Pesan Paket</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: SWEET & SAVORY -->
+    <section class="bagian-menu menu-section" data-category="sweet-savory">
+      <div class="judul-bagian-menu"><div class="baris"><span class="judul-sedang teks-primary">Sweet & Savory Pastries</span><span class="overline teks-redup">Dipanggang Segar Tiap Subuh</span></div><span class="catatan">Menggunakan butter mentega artisan & tepung gandum organik</span></div>
+      <div class="grid-menu">
+        <article class="kartu-produk menu-card" data-cat="sweet-savory" data-name="buttercloud croissant pastry">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLZBVKjc_tzcrf06pTM3tRUKf2E3oxU-3KmhUgFxHyVo94074y_GQZMupyYQGZpMqssWNXTLhwMpJvQ78KIuJc9mRMO7qlDYUfPfhKYaIXs0PDFzfi-HIT8Z-pFaYkUpgKSwGjjbAObvVHNT-oQxYUeD9QtB6MMMxw0Z-mMwT2LdWTKKW1CvY_BLxNyM6w7mvfWHvFEG0eE7xtiVnwg53l3u14zyky47qtYHdqLTvi" alt="Buttercloud Croissant"><span class="badge-produk utama"><span class="material-symbols-outlined teks-secondary" style="font-size:14px;">local_fire_department</span> Signature</span></div>
+            <div class="baris-nama-harga"><h2>Buttercloud Croissant</h2><span class="harga-produk">18k</span></div>
+            <p class="deskripsi-produk">Croissant renyah berlapis butter premium dengan tekstur sarang madu lembut dan aroma wangi menggoda selera.</p>
+            <div class="label-rasa"><span>Butter Bordier</span><span>Vegetarian Friendly</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">schedule</span> 5-7 min reheat</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Buttercloud Croissant','18.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="sweet-savory" data-name="choco loaf cokelat coklat roti">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvy8qFYdRXt2kb8eXXBtrFPMefeYCer3eHcF5LHv-_ivHmvkWmJUSN6ma292lY2jifBMxyCTtTEW3TlIlVcHTANKKpNXnqTsWuumFwwT0QJMTWnCddPZXwhvNnE5v5w5vWzc1RZiG7GTmDG7YUr22DY3zQsWlcX1VNiqwms0Err6LzUuO5vx4_9W0JkB4emXDR7WoQb2SC-Wt-odQmllqBjJfVriIu4h2mmfZtCEhQ" alt="Choco Loaf"></div>
+            <div class="baris-nama-harga"><h2>Choco Loaf</h2><span class="harga-produk">15k</span></div>
+            <p class="deskripsi-produk">Roti panggang lembut bertekstur brioche dengan lelehan cokelat pekat Belgia 70% dan taburan serpihan sea salt.</p>
+            <div class="label-rasa"><span>Belgian Dark Choc</span><span>Kids Favorite</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">local_cafe</span> Pas dengan Latte</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Choco Loaf','15.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="sweet-savory" data-name="golden waffle ice cream es krim karamel">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxEalmYW-tIcRIgGXOqQfuMWqLeNUtnbQPVLhKpwYobuVODbtSsUKjdT47G9ot5TQkCE-Os0FsNLuI3uJkUGSMIyUH69JKFfMZFm_wTWZL38wZNenB2FHjIWXe_jJjEADKzAGF4czJ8SlHQ1DPRC5H0OuZ_mxw7W9cPMcZfftTi_jSjgrbrVC09U6Hz6HW2xabj3CiubtMBb5nSZXI4ln4yxd7iVSQVdc2FZ1-cLwQ" alt="Golden Waffle"><span class="badge-produk utama" style="color:var(--warna-secondary);">Sweet Pick</span></div>
+            <div class="baris-nama-harga"><h2>Golden Waffle</h2><span class="harga-produk">22k</span></div>
+            <p class="deskripsi-produk">Waffle renyah keemasan bertabur gula mutiara, disajikan bersama satu scoop gelato vanila artisan & sirup karamel bakar.</p>
+            <div class="label-rasa"><span>Artisan Gelato</span><span>Biscoff Crumbs</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">icecream</span> Dingin & Hangat</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Golden Waffle','22.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="sweet-savory" data-name="savory toast roti gurih telur smoked beef">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCltN4gNxDouDomjodwUC8O1rkwvU1ViRJllSHi47i1t8c7ToXdt8JAKZKo8JmrfO1LEbq0hiS7cJgX4vys4Wo0rDiqlcb41pvhftyUEoyNtZpJxWyNdas6gTM3XXj7W0MyCGfmmN-OhmOcP4svOLxeJeaVirTR6SCEw9dWKsw6e7UlT5jSCReWkY4drJcELjxNgc4_IgAi1rU9YeRn3G29nGAxmmuFdmYsAEwvuRMK" alt="Savory Toast"><span class="badge-produk hijau">Sarapan Pilihan</span></div>
+            <div class="baris-nama-harga"><h2>Savory Toast</h2><span class="harga-produk">22k</span></div>
+            <p class="deskripsi-produk">Roti bakar brioche gurih dengan telur mata sapi omega lembut, irisan daging sapi asap renyah, dan racikan spicy aioli homemade.</p>
+            <div class="label-rasa"><span>Omega Egg</span><span>Smoked Beef Halal</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">lunch_dining</span> Kenyang Mantap</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Savory Toast','22.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="sweet-savory" data-name="berry danish pastry strawberry blueberry">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaZq_dOCX_3xsx2OZ6p5mk3rloWYncAUFd5zq7E5_MNC9V2lnHezGcAPMPXt8PnzhLlp1lb9Qf2SQ7ykBQUOH9V4tl0IvoCUFpAa2m1T7YzzTxhjO1__0nIrbe1MGOHbb7k-ByLOJLVlIislXR9Z1I_XoZFNlAZIrDKTDfbKhYszCecdXa_4IAtnwCIdT1RWpFqJYzBiA5omh4xEW4kLQDFqSMfWAG6-oxaE5wvVFd" alt="Berry Danish"></div>
+            <div class="baris-nama-harga"><h2>Berry Danish</h2><span class="harga-produk">20k</span></div>
+            <p class="deskripsi-produk">Pastry renyah berpola melingkar dengan isian vanilla diplomat cream lembut dan limpahan buah blueberry serta stroberi segar.</p>
+            <div class="label-rasa"><span>Fresh Berry</span><span>Vanilla Custard</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">cake</span> Rasa Segar Buah</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Berry Danish','20.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="sweet-savory" data-name="cinnamon roll kayu manis pastry cream cheese">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXbXkrgWEhCM04rPH4i0l90L0B_IRbWX2DX58eWfNt6X__kINp39NtKKbiM_plous5KpcqoSSUkplKWqMXwBMI9uegjzrdXBdovTgsJy1GVBthGRwedhwC8q1toJGj2BXK24s84ijH3v6DBkXB5QUycb60pCN1_GCNESeNm04dWsg7fbKvjBvfESELmtZVQB2iXxTuflKOtH0iKjdtWMFlPAvyEGy_TFaYKZSO4SrT" alt="Cinnamon Roll"></div>
+            <div class="baris-nama-harga"><h2>Cinnamon Roll</h2><span class="harga-produk">18k</span></div>
+            <p class="deskripsi-produk">Gulungan roti lembut dengan infusi kayu manis Jawa aromatik, brown sugar karamel, dan sapuan cream cheese frosting manis gurih.</p>
+            <div class="label-rasa"><span>Kayu Manis Jawa</span><span>Cream Cheese</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">local_cafe</span> Best with Americano</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Cinnamon Roll','18.000')">+ Pesan</button></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SIGNATURE COFFEE -->
+    <section class="bagian-menu menu-section" data-category="signature">
+      <div class="judul-bagian-menu"><div class="baris"><span class="judul-sedang teks-primary">Signature Coffee & Specialties</span><span class="overline teks-secondary">Resep Khas Teduh</span></div><span class="catatan" style="font-style:normal;">Tersedia opsi susu oat / less sugar sesuai selera</span></div>
+      <div class="grid-menu">
+        <article class="kartu-produk menu-card" data-cat="signature" data-name="butterscotch teduh signature coffee kopi">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCib87qGSJDt7cFGSWLs4hEduBo8UPsT8O20vPwzBfte8sBYqq4gsKq7hMFkSq4UBJuDdn45wzOPLc0wDtx6vT_u8Mzg4HkXtlPZIVQprY-FHojeo33Xrfm4AFSWHjxjxQLAThIG2jQ2MC-fxEy0kyamIFfDzSwsOETpod2_cB3ynwXq-sj0PnqQ39BvOsaMdwm7B0ivqzZgrY16N0Xj8Om-9g9dPeess9hW10KS-52" alt="Butterscotch Teduh"><span class="badge-produk spesial"><span class="material-symbols-outlined" style="font-size:14px;color:var(--warna-secondary-container);">star</span> Nomor Satu Favorit</span></div>
+            <div class="baris-nama-harga"><h2>Butterscotch Teduh</h2><span class="harga-produk">26k</span></div>
+            <p class="deskripsi-produk">Espresso house blend biji Temanggung dengan saus butterscotch gurih karamel, susu segar dingin, dan creamy cold foam lembut.</p>
+            <div class="label-rasa"><span>House Blend Temanggung</span><span>Opsi Less Sweet</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">thermostat</span> Ice / Hot</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Butterscotch Teduh','26.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="signature" data-name="vanilla latte kopi susu vanila">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQG4Iezb6hMo6w3hkyn348-MIHfgtjDc7cqYeG64DRqvjpwWK6y1XZtWsdn2QyGmQOnKm-AP4QksXb5DjnnoJy2qIOJtwSu7sf138YX5lclnEjeW6LG_qNNrvIQgmwf_NBfY964lTFphmw5Pe0hancMF03iFM_hB_PBA_8K6lwYymtOmIbFiy0o_cZnwFtJooPPoTEu-6dbQvdELgbaf4SCfne0DE17GUw0gpteVJ5" alt="Vanilla Latte"></div>
+            <div class="baris-nama-harga"><h2>Vanilla Latte</h2><span class="harga-produk">25k</span></div>
+            <p class="deskripsi-produk">Paduan espresso seimbang, susu murni segar dingin, dan sirup vanila madagascar asli yang lembut menenangkan.</p>
+            <div class="label-rasa"><span>Madagascar Vanilla</span><span>Creamy & Smooth</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">water_drop</span> Fresh Milk</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Vanilla Latte','25.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="signature" data-name="hazelnut latte kopi kacang roasted">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnn78f3Qx0aLZrgWTcXgZGm5rsD5YZ8lnO-3MYxNfSzFecqDlinFLa8p6x9WWkw43EhW6uV_D8NYC80S7gLtua96pCI_mg-ysMBtog27cecqsB9g9PlJ2nmt8ObP1YPuvqfXiYFjg4rn6F1aHXwHywx7AsLMYToD8oEHW69_gcbM2-QHZp1gmtvDDi6IjfLDZS-2vUAO9L3WhoU4pY4XYOSAl5NJY6I0PMLlGwIRge" alt="Hazelnut Latte"></div>
+            <div class="baris-nama-harga"><h2>Hazelnut Latte</h2><span class="harga-produk">26k</span></div>
+            <p class="deskripsi-produk">Kopi susu aromatik dengan sensasi rasa nutty kacang hazelnut panggang yang kaya, gurih, dan berakhir hangat di tenggorokan.</p>
+            <div class="label-rasa"><span>Roasted Nutty Notes</span><span>Medium Roast</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">local_cafe</span> Nutty Profile</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Hazelnut Latte','26.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="signature" data-name="caramel macchiato latte karamel manis kopi">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu0itoyCf0JA1FnTw5GujAhtEdgzlrjmsNyG7-CiG0qHNM6osv_AMi3bCeAxQLHdabDzdt5CVVlnR0A9sZF-uwbZiHXqaFcVflVRfrgvdWi4pQbXc72Nd303qwAMGwaqZYBJKgijVHvc9VhmV-V13_fpuqONamM5LppbVfonTt55tFbg0F5WwoPgyO3IczQ70sozjcXKvIV3d21bLo5uwl2iVxM1foExp2kRdKMsTV" alt="Caramel Macchiato"></div>
+            <div class="baris-nama-harga"><h2>Caramel Macchiato</h2><span class="harga-produk">26k</span></div>
+            <p class="deskripsi-produk">Sentuhan manis sirup karamel bakar berpadu susu steamed lembut dan ekstraksi espresso pekat yang dituangkan di lapisan atas.</p>
+            <div class="label-rasa"><span>Salted Caramel Drizzle</span><span>Sweet Indulgence</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">tune</span> Sugar Adjustable</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Caramel Macchiato','26.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="signature" data-name="pandan latte hijau pandan santan kelapa">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrVEOfrMTBFktHrS3XedBVIJIPjXH3Ke9BQ7kCk5lWWrgMLOf8J6iWoo8K6EyVxFy8fjzxupvjPtTZMxnmZSOxPtYs_rcE3O6fHNKWya19sr8ZJDrB9h5IwrLOCsrdul2ddjMJ1THnHK7K_oVO9rX89-tI8epDjVNMgZz52aabSBElNSOPna_CNcZm1rA_Fl6_DiawW0ljWemgm9hfnJV4rkvgNZla6mpWKo-ca7wj" alt="Pandan Latte"><span class="badge-produk hijau">Racikan Nusantara</span></div>
+            <div class="baris-nama-harga"><h2>Pandan Latte</h2><span class="harga-produk">27k</span></div>
+            <p class="deskripsi-produk">Infusi daun pandan suji asli berpadu lembutnya santan segar kelapa muda dan espresso aromatik khas pegunungan Jawa.</p>
+            <div class="label-rasa"><span>Pandan Suji Alami</span><span>Dairy-Free Option</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">eco</span> 100% Organik</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Pandan Latte','27.000')">+ Pesan</button></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ESPRESSO MANUAL -->
+    <section class="bagian-menu menu-section" data-category="espresso-manual">
+      <div class="judul-bagian-menu"><div class="baris"><span class="judul-sedang teks-primary">Classic Espresso & Pour Over</span><span class="overline teks-redup">Origin Biji Pilihan</span></div><span class="catatan" style="font-style:normal;">Pilihan biji: Gayo Fullwash, Bali Kintamani, Temanggung Natural</span></div>
+      <div class="grid-menu dua-kolom">
+        <article class="kartu-produk menu-card" data-cat="espresso-manual" data-name="americano teduh iced hot black coffee hitam espresso">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPEOTQX2G9iNXbMWieU4PET6jmO9xnqkHvrWy9pLFXuFSqElFdrplBAh-iV5v-OJa3JDQpnGnwNqG4pMrL7YjU7SYdy7rX-Xup89GTHUe1lqIB_AovF0KLntf3XZsCfqd4LWrRk91okMhRre4leGyd8Lxbmk0BGz1EqESXT6fRYswFFQjRwiEbCIgz_yT5YZPlxCzUNlcrvSuNh-SOFTfp1kYyUWgPva47xhXvtyde" alt="Americano Teduh"><span class="badge-produk utama">WFC Essential</span></div>
+            <div class="baris-nama-harga"><h2>Americano Teduh</h2><span class="harga-produk">20k</span></div>
+            <p class="deskripsi-produk">Double shot espresso segar dari biji Arabika single origin, menyajikan karakter rasa clean dengan sentuhan floral dan citrus cerah.</p>
+            <div class="label-rasa"><span>0 Sugar / Kalori Rendah</span><span>Double Ristretto</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">water</span> Dingin / Panas</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Americano Teduh','20.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="espresso-manual" data-name="espresso shot single double crema tebal">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvJldnrNZ7VSueDUZbqTQ8cWDOuOA1xR84iS2UiagCynE3vAhLRGNcWBuuuHKVzIl4L-SnvbV4nyLy2qzu4ghs2qmZXwen4JzXkZbD5j0qKLe8MQW2SQSVbV6FjcG012CGZDd3o9Mw7GAOV4Vi-dAvhKf29Nry9rZY1jkVVRnU_Tz5xnspYFgzmnqP0Zinqsd8qomGf4To5Lh2LOalFc-NS3WHKnP1wzaiQcTKyitx" alt="Espresso"></div>
+            <div class="baris-nama-harga"><h2>Espresso Single / Double</h2><span class="harga-produk">20k</span></div>
+            <p class="deskripsi-produk">Ekstraksi presisi dengan tekanan 9 bar, menghasilkan crema tebal keemasan dan body pekat berkarakter cokelat rempah.</p>
+            <div class="label-rasa"><span>Crema Emas Tebal</span><span>Free Mineral Water</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">bolt</span> Quick Energy</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Espresso','20.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="espresso-manual" data-name="affogato es krim vanila espresso gelato dessert">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGbp8Zt47pi8LVnELkjZWbG1y_PTiypn7Fbkr9v2rtXAl2I-lGT1qiUYcVyHRSaLrqANLxsxSYq34ENARQWXCTDdi3M4B1m5-z5gs1natxIcJYtnncxFW31c2gJLLFsCcjl1v7hWmrT_1PZshjHsnTqqOufTt2zuzRW2ZvHE196VTPmbs1muGaqy05ZRzJAXnsltxyhptxAgeHWu_aB3S5oFqVAj5jFHgoG0hTSPqz" alt="Affogato"><span class="badge-produk spesial" style="background-color:var(--warna-secondary);">Coffee Dessert</span></div>
+            <div class="baris-nama-harga"><h2>Affogato Teduh</h2><span class="harga-produk">30k</span></div>
+            <p class="deskripsi-produk">Satu scoop besar es krim vanila artisan lembut yang diguyur double shot espresso panas kental langsung saat disajikan di meja.</p>
+            <div class="label-rasa"><span>Gelato Vanila Asli</span><span>Hot & Cold Contrast</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">auto_awesome</span> Manis & Pahit</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Affogato Teduh','30.000')">+ Pesan</button></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 4: NON-COFFEE -->
+    <section class="bagian-menu menu-section" data-category="tea-refreshment">
+      <div class="judul-bagian-menu"><div class="baris"><span class="judul-sedang teks-primary">Non-Coffee & Tisane Herbal</span><span class="overline teks-redup">Tanpa Kafein</span></div><span class="catatan" style="font-style:normal;">Diramu dari bunga telang, serai wangi, dan teh daun lokal</span></div>
+      <div class="grid-menu">
+        <article class="kartu-produk menu-card" data-cat="tea-refreshment" data-name="butterfly pea sparkler bunga telang lemon soda">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvmJXoiAbr9aY0sGPzJkHe5BwY5Ye3pAmrKg5e5C0ea2ccv-eg0fCB8Wq1GX7xluLLWYDH1n8_I-q-E1V4rzautxElTloxGflzXncYZ3xGnswY7EjuDKD0DmbIKS9jlDdzppEPNdaPoae6PEDZmSC-GqrNjugGPphZ6V1vcaoKTYG4Ga0FnGHJlPKrwXjhPX_TngWz-54T6x82OgjCORhC0lSyh3pWsEs1jIByi0UX" alt="Telang Lemon Sparkler"></div>
+            <div class="baris-nama-harga"><h2>Telang Lemon Sparkler</h2><span class="harga-produk">24k</span></div>
+            <p class="deskripsi-produk">Seduhan bunga telang biru alami dipadu perasan lemon segar dan soda dingin bergelembung yang menyegarkan dahaga.</p>
+            <div class="label-rasa"><span>Bebas Kafein</span><span>Kaya Antioksidan</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">local_bar</span> Segar Alami</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Telang Lemon Sparkler','24.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="tea-refreshment" data-name="matcha latte uji jepang susu oat">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn1HQ85ckVOc-0A4cQ2u1Qn1MC-nj3XrDvz2gZXiH7J4_kVPDJ1yEn7yRu3VkXY8aez3F5letYC_PnlT4K4tK82y9MsMiVT91zJ90x8EPbs-YBRFN_sMfyrjMWjHCXUlVf8TYWr2yOtpJ0ufm5cZy_voUPI1j1VNANtHnau942ln7aBaEW5GzZv1y4DbB3lBQTSbBBUBqQkYKTu1cmxlQqCkE3dbdqtujBwgXkbmNq" alt="Matcha Uji Cold Whisk"></div>
+            <div class="baris-nama-harga"><h2>Matcha Uji Cold Whisk</h2><span class="harga-produk">28k</span></div>
+            <p class="deskripsi-produk">Matcha seremonial asli Kyoto yang dikocok tradisional menggunakan chasen bambu, dipadukan susu segar tanpa pemanis berlebih.</p>
+            <div class="label-rasa"><span>Ceremonial Grade</span><span>Low Bitter</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">spa</span> Otentik Kyoto</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Matcha Uji Cold Whisk','28.000')">+ Pesan</button></div>
+        </article>
+        <article class="kartu-produk menu-card" data-cat="tea-refreshment" data-name="chocolate royale cokelat artisan hangat panas dingin">
+          <div class="info-produk">
+            <div class="gambar-produk"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApysgfySu5VNcEvb0-ylzCWCZOsE94RBfQvNcJofYJ22GUWbFsPiDj2iZNcjy61tqCkQgTaeoMJ-pvDfskvY4OOelket9yqW2np5GPvicYp9juhYr6gqatZB-OTGKANvYHc43yJEkehuiaoNJgJ5pTjX3s2fBefWZXhisBCgmXJZbbv8ON0Exw9rnsshfd-vU4PX6_QVui3_lPu_7-obLVUuwMvOeARZuTCLnzsix-" alt="Chocolate Royale"></div>
+            <div class="baris-nama-harga"><h2>Chocolate Royale</h2><span class="harga-produk">25k</span></div>
+            <p class="deskripsi-produk">Cokelat kakao fermentasi lokal Gunungkidul dengan rasa tebal, aroma fruity alami, dan tekstur creamy kental tanpa pemanis buatan.</p>
+            <div class="label-rasa"><span>Kakao Gunungkidul</span><span>Rich & Velvety</span></div>
+          </div>
+          <div class="footer-produk"><span class="info-tambahan"><span class="material-symbols-outlined" style="font-size:14px;">favorite</span> Comfort Drink</span><button class="tombol-pesan-produk" onclick="tambahPesanan('Chocolate Royale','25.000')">+ Pesan</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="kotak-catatan" style="margin-top:1.5rem;margin-bottom:2.5rem;">
+      <div class="baris-atas" style="gap:1rem;">
+        <div class="ikon-catatan"><span class="material-symbols-outlined">tune</span></div>
+        <div class="teks-catatan"><span class="overline">Personalisasi Seduhan</span><h2 class="judul-kartu">Suka Kopi dengan Gaya Anda Sendiri?</h2><p class="teks-normal">Tersedia opsi <strong>Susu Oat (+Rp 6.000)</strong>, <strong>Ekstra Espresso Shot (+Rp 5.000)</strong>, serta pilihan kadar manis (Less Sugar 50% atau No Sugar) tanpa biaya tambahan. Cukup sampaikan ke barista kami saat memesan.</p></div>
+      </div>
+      <div style="flex-shrink:0;"><a href="#" class="tombol tombol-utama"><span class="material-symbols-outlined" style="font-size:18px;">table_bar</span> Reservasi Meja & Pesan</a></div>
+    </section>
+  </main>
+
+  <aside class="bar-melayang" id="bar-melayang">
+    <div class="konten-bar">
+      <div class="info-keranjang">
+        <div class="bulat-jumlah" id="jumlah-item">0</div>
+        <div class="teks-keranjang"><span class="label" id="teks-pesanan">Pesanan Meja</span><span class="overline" id="total-harga">Rp 0</span></div>
+      </div>
+      <div class="aksi-keranjang">
+        <button class="tombol-batal" onclick="hapusPesanan()">Batal</button>
+        <a href="#" class="tombol-lanjut-meja">Lanjut ke Meja <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"><span class="material-symbols-outlined">check_circle</span><span id="toast-pesan">Item ditambahkan</span></div>
+
+  <footer class="kaki">
+    <div class="kaki-dalam">
+      <div class="kaki-grid">
+        <div class="kaki-kolom"><span class="kaki-judul">Ruang Teduh</span><p class="kaki-teks">Sebuah suaka hening di sudut Yogyakarta untuk menyesap seduhan kopi artisan nusantara, menyelesaikan karya, dan merayakan perjumpaan hangat tanpa derau.</p><div class="sosial-media"><a href="#" class="tautan-sosial">Instagram</a><a href="#" class="tautan-sosial">WhatsApp</a><a href="#" class="tautan-sosial">TikTok</a></div></div>
+        <div class="kaki-kolom"><span class="kaki-subjudul">Kedai & Waktu Singgah</span><p class="kaki-teks">Jl. Anggrek, Samirono, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</p><div class="info-jam-kaki"><span class="overline">Jam Buka Operasional</span><span class="judul-mini">08:00 – 23:00 WIB</span><span class="teks-kecil">Buka Setiap Hari (Senin – Minggu)</span></div></div>
+        <div class="kaki-kolom"><span class="kaki-subjudul">Tautan Cepat</span><div class="tautan-cepat"><a href="home.html">Beranda Utama</a><a href="menu.html">Daftar Menu</a><a href="membership.html">Ruang WFC & Member</a><a href="events.html">Agenda & Workshop</a><a href="ulasan.html">Suara Sahabat</a><a href="#">Reservasi Tempat</a></div></div>
+        <div class="kaki-kolom"><span class="kaki-subjudul">Kabar dari Ruang Teduh</span><p class="kaki-teks">Dapatkan warta cupping session mingguan, rekomendasi biji sangrai musiman, dan diskon paket WFC.</p><form class="form-warta" onsubmit="event.preventDefault();"><input type="email" placeholder="Alamat email Anda" class="input-warta" required><button type="submit" class="tombol tombol-utama" style="width:100%;">Langganan Warta</button></form></div>
+      </div>
+      <div class="kaki-bawah"><p>© 2024 Ruang Teduh Cafe (Yogyakarta). Hak cipta dilindungi undang-undang.</p><div class="fitur-kaki"><span><span class="material-symbols-outlined" style="font-size:16px;">wifi</span> High-Speed WiFi</span><span><span class="material-symbols-outlined" style="font-size:16px;">power</span> Colokan Tersedia</span></div></div>
+    </div>
+  </footer>
+
+  <script>
+    let pesanan = [];
+    function filterKategori(kategori, tombol) {
+      document.querySelectorAll('#pil-kategori .pil-kategori').forEach(b => b.classList.remove('aktif'));
+      tombol.classList.add('aktif');
+      document.querySelectorAll('.menu-section').forEach(sec => {
+        sec.style.display = (kategori === 'all' || sec.getAttribute('data-category') === kategori) ? 'flex' : 'none';
+      });
+    }
+    function cariMenu(query) {
+      const q = query.toLowerCase().trim();
+      document.querySelectorAll('.menu-card').forEach(card => {
+        const data = card.getAttribute('data-name').toLowerCase();
+        card.style.display = (!q || data.includes(q)) ? 'flex' : 'none';
+      });
+      document.querySelectorAll('.menu-section').forEach(sec => {
+        let count = 0;
+        sec.querySelectorAll('.menu-card').forEach(c => { if (c.style.display !== 'none') count++; });
+        sec.style.display = count > 0 ? 'flex' : 'none';
+      });
+    }
+    function tambahPesanan(nama, hargaStr) {
+      const harga = parseInt(hargaStr.replace('.', ''), 10) || 0;
+      pesanan.push({ nama, harga });
+      perbaruiBar();
+      tampilkanToast(nama + ' (Rp ' + hargaStr + ') ditambahkan');
+    }
+    function perbaruiBar() {
+      const bar = document.getElementById('bar-melayang');
+      if (pesanan.length > 0) {
+        const total = pesanan.reduce((a, b) => a + b.harga, 0);
+        document.getElementById('jumlah-item').innerText = pesanan.length;
+        document.getElementById('total-harga').innerText = 'Rp ' + total.toLocaleString('id-ID');
+        bar.classList.add('tampil');
+      } else { bar.classList.remove('tampil'); }
+    }
+    function hapusPesanan() { pesanan = []; perbaruiBar(); tampilkanToast('Daftar pesanan dibersihkan'); }
+    function tampilkanToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-pesan').innerText = msg;
+      t.classList.add('tampil');
+      setTimeout(() => t.classList.remove('tampil'), 2400);
+    }
+  </script>
+</body>
+</html>
